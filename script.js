@@ -1,18 +1,12 @@
-let playerChoice = prompt("Make your choice: rock, paper or scissors").toLowerCase();
-
 function getComputerChoice () {
     let choices = ["rock", "paper", "scissors"]
     let choice = Math.floor(Math.random() * choices.length)
     return choices[choice]
 }
 
-console.log(playerChoice)
-console.log(typeof(playerChoice))
-console.log(getComputerChoice())
 
-function playGame () {
+function playGame (user) {
     computer = getComputerChoice();
-    user = playerChoice;
     if (user === "rock" && computer === "rock"){
         console.log("its a tie, both rock")
     }
@@ -49,3 +43,12 @@ function playGame () {
 
 
 }
+const buttons = document.querySelectorAll('button')
+
+// foreach used to iterate through all buttons
+buttons.forEach((button) => {
+
+    // for each button add click listener
+    button.addEventListener('click', () => {
+        playGame(button.className);
+})})
